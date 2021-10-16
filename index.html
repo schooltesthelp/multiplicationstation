@@ -137,11 +137,13 @@ Spider.prototype.die = function () {
 
 PlayState = {};
     
-let file = "data/levels.json"
-
+let file = "data/levels.json";
+const LEVEL_COUNT = "";
 fetch (file)
 .then(x => x.text())
-.then(y => const LEVEL_COUNT = y.amount);
+.then(y => { 
+LEVEL_COUNT = y.amount;
+});
     
 
 PlayState.init = function (data) {
@@ -463,7 +465,6 @@ function typeWriter() {
     }, speed);
     
   }
-    startgame();
 }
 
 typeWriter();
