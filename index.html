@@ -141,7 +141,7 @@ let file = "data/levels.json"
 
 fetch (file)
 .then(x => x.text())
-.then(y => const LEVEL_COUNT = y);
+.then(y => const LEVEL_COUNT = y.amount);
     
 
 PlayState.init = function (data) {
