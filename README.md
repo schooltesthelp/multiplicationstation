@@ -5,7 +5,7 @@ Multiplication Station is a tool for children to learn their tables. We prioriti
 
 ## How users play
 
-This game is when a user tries to get coins and get the key. When they reach the key, the <i>Big Boss</i>, when the user answers a multiplication problem.
+This game is when a user tries to get coins and get the key. When they reach the key, the <i>Big Boss</i> , when the user answers a multiplication problem, needs to be solved.
 
 Try it out at https://schooltesthelp.github.io/multiplicationstation.
 
