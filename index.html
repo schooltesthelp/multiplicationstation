@@ -3,9 +3,10 @@
     <title>Multiplication Station</title>
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="images/coin_icon.png"/>
-    <script src="https://schooltesthelp.github.io/multiplicationstation/js/phaser.min.js"></script>
+    <script src="js/phaser.min.js"></script>
     
     <script>
+function startgame() {
 // =============================================================================
 // sprites
 // =============================================================================
@@ -135,10 +136,13 @@ Spider.prototype.die = function () {
 // =============================================================================
 
 PlayState = {};
+    
+let file = "data/levels.json"
 
-
-const LEVEL_COUNT = 3;
-let scoreBoard;
+fetch (file)
+.then(x => x.text())
+.then(y => const LEVEL_COUNT = y);
+    
 
 PlayState.init = function (data) {
     this.game.renderer.renderSession.roundPixels = true;
@@ -163,8 +167,6 @@ PlayState.init = function (data) {
 };
 
 PlayState.preload = function () {
-	this.game.load.baseURL = 'https://schooltesthelp.github.io/multiplicationstation/';
-	this.game.load.crossOrigin = 'anonymous';
     this.game.load.json('level:1', 'data/level01.json');
 
     this.game.load.image('font:numbers', 'images/numbers.png');
@@ -215,9 +217,8 @@ PlayState.create = function () {
     // crete hud with scoreboards)
     this._createHud();
     
-    scoreBoard = this.add.text(10, 560, "Level: " + this.level, {fontSize: '32px', fill: '#fff'});
+    this.add.text(50, 500, "Level" , { font: "20px Times New Roman", fill: "#ffa0d0"});
     console.log(this.level);
-    
 };
 
 PlayState.update = function () {
@@ -403,7 +404,6 @@ PlayState._onHeroVsKey = function (hero, key) {
         key.kill();
         this.hasKey = true;
         document.cookie = boss1 + "x" + boss2 + "=correct;path=/multiplicationstation/admin.html";
-        
     } else {
         alert("Hmm... That's not right. Try it again.");
         document.cookie = boss1 + "x" + boss2 + "=wrong;path=/multiplicationstation/admin.html";
@@ -415,8 +415,6 @@ PlayState._onHeroVsDoor = function (hero, door) {
     this.sfx.door.play();
     this.game.state.restart(true, false, { level: this.level + 1 });
     // TODO: go to the next level instead
-    scoreBoard.setText('Level: ' + this.level);
-    
 };
 
 // =============================================================================
@@ -429,6 +427,7 @@ window.onload = function () {
     game.state.start('play', true, false, {level: 0});
 };
 
+}
 
 
     </script>
@@ -464,7 +463,7 @@ function typeWriter() {
     }, speed);
     
   }
-    
+    startgame();
 }
 
 typeWriter();
