@@ -3,6 +3,13 @@
 
 Multiplication Station is a tool for children to learn their tables. We prioritize creating quality produts, so we created this in form as a video game, and users will get hooked on to it.
 
+
+
+![Screenshot 2021-10-16 10 09 45 AM](https://user-images.githubusercontent.com/87620301/137599505-6b734830-75ca-47ea-a88c-7661434a03a0.png)
+
+
+
+
 ## How users play
 
 This game is when a user tries to get coins and get the key. When they reach the key, the <i>Big Boss</i> , when the user answers a multiplication problem, needs to be solved.
