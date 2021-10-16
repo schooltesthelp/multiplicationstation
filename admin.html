@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiplication Station | Admin Dashboard</title>
+<link rel="shortcut icon" type="image/png" href="images/coin_icon.png"/>
+</head>
+<body>
+<code>
+<label>
+    Enter admin passcode:
+    <input type="password" id="passcode">
+</label>
+<button onclick="checkPasscode()">Submit</button>
+</code>
+<br>
+<script>
+    function getCookies() {
+            var cookies = document.cookie.split(';');
+            var ret = '';
+            for (var i = 1; i <= cookies.length; i++) {
+                ret += i + ' - ' + cookies[i - 1] + "<br>";
+            }
+            return ret;
+    }
+
+    function getResults() {
+    document.getElementsByTagName("code")[0].innerHTML = getCookies();
+    }
+
+    function checkPasscode() {
+        var passcoderaw = document.getElementById("passcode").value;
+        var passcode = passcoderaw.toLowerCase();
+        fetch('https://latlong.pythonanywhere.com/encode/' + passcode)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementsByTagName("code")[0].innerHTML = "Loading...";
+                if (data.result == "YWRtaW5wYXNzY29kZTkx") {
+                    getResults();
+                } else {
+                    document.getElementsByTagName("code")[0].innerHTML = "The code you entered is not correct. Please try again.";
+                }
+            });
+    }
+</script>
+</body>
+</html>
