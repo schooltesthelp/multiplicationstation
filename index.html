@@ -210,8 +210,9 @@ PlayState.create = function () {
 
     // crete hud with scoreboards)
     this._createHud();
-
     
+    this.add.text(50, 500, "Level" , { font: "20px Times New Roman", fill: "#ffa0d0"});
+    console.log(this.level);
 };
 
 PlayState.update = function () {
@@ -396,10 +397,10 @@ PlayState._onHeroVsKey = function (hero, key) {
         alert("You've beaten the boss!");
         key.kill();
         this.hasKey = true;
-        document.cookie = boss1 + "x" + boss2 + "=correct;path=/admin.html";
+        document.cookie = boss1 + "x" + boss2 + "=correct;path=/multiplicationstation/admin.html";
     } else {
         alert("Hmm... That's not right. Try it again.");
-        document.cookie = boss1 + "x" + boss2 + "=wrong;path=/admin.html";
+        document.cookie = boss1 + "x" + boss2 + "=wrong;path=/multiplicationstation/admin.html";
     }
     
 };
@@ -457,7 +458,6 @@ function typeWriter() {
     
   }
     startgame();
-  
 }
 
 typeWriter();
