@@ -18,3 +18,9 @@ Go to https://github.com/schooltesthelp/multiplicationstation/wiki/Get-Parental-
 Click "```Request Access```"
 
 It take usually 3 to 15 days for your request to be approved.
+
+
+## Thanks to...
+
+phaser.js and 
+MDN
